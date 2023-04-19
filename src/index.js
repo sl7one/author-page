@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import { AboutPage } from 'Pages/AboutPage';
+import { ContactsPage } from 'Pages/ContactsPage';
+import { ErrorPage } from 'Pages/ErrorPage';
+import { MemsPage } from 'Pages/MemsPage';
+import { ProjectsPage } from 'Pages/ProjectsPage';
+import { SkillsPage } from 'Pages/SkillsPage';
+
+import { App } from './components/App/App';
 import './styles/index.css';
 import './styles/reset.css';
-import { App } from './components/App/App';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'styles/theme';
-import { AboutPage } from 'Pages/AboutPage';
-import { ErrorPage } from 'Pages/ErrorPage';
-import { SkillsPage } from 'Pages/SkillsPage';
-import { ProjectsPage } from 'Pages/ProjectsPage';
-import { ContactsPage } from 'Pages/ContactsPage';
 
 const publicRouter = createBrowserRouter([
    {
@@ -34,6 +35,10 @@ const publicRouter = createBrowserRouter([
             path: 'contacts',
             element: <ContactsPage />,
          },
+         {
+            path: 'mems',
+            element: <MemsPage />,
+         },
       ],
    },
 ]);
@@ -41,8 +46,6 @@ const publicRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    //  <React.StrictMode>
-   <ThemeProvider theme={theme}>
-      <RouterProvider router={publicRouter} />
-   </ThemeProvider>
+   <RouterProvider router={publicRouter} />
    //  </React.StrictMode>
 );

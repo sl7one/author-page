@@ -6,5 +6,8 @@
    "printWidth": 90,
    "bracketSpacing": true,
    "arrowParens": "always",
-   "singleAttributePerLine": true
+   "singleAttributePerLine": true,
+   "importOrder": ["^\\u0000", "^react", "^@?\\w", "^\\.", "^\\u0000"],
+   "importOrderSeparation": true,
+   "importOrderSortSpecifiers": true
 }
