@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 
 import { BackgroundVideo } from 'components/BackgroundVideo/BackgroundVideo';
 import { Header } from 'components/Header/Header';
