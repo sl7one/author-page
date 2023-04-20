@@ -1,7 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-import photo5 from '../assets/img/photo6.jpg';
-
 export const AppBox = styled.div`
    background-color: ${({ theme }) => theme.colors.mainBlackBg};
    color: ${({ theme }) => theme.colors.mainBlackText};
@@ -10,11 +8,47 @@ export const AppBox = styled.div`
    line-height: 1.2;
    letter-spacing: 1px;
    font-weight: 200;
-   transition: ${({ theme }) => theme.transition('background-color')};
+   transition: ${({ theme }) => theme.transition('all')};
+`;
+
+const filter = keyframes`
+0%{
+   filter: invert(0) blur(0) ;
+}
+100%{
+   filter: invert(1) blur(1px) ;
+}
+`;
+
+const filterReversed = keyframes`
+0%{
+   filter: invert(1);
+}
+100%{
+   filter: invert(0);
+}
+`;
+
+export const BackgroundVideoBox = styled.div`
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 0;
+   height: 100vh;
+   width: 100%;
+   overflow: hidden;
+
+   video {
+      height: 120vh;
+      animation: ${({ flag }) => {
+            return flag ? filterReversed : filter;
+         }}
+         350ms ease-in-out both;
+   }
 `;
 
 export const Container = styled.div`
-   padding: 0 80px;
+   /* padding: 0 80px; */
 `;
 
 const line = keyframes`
@@ -28,6 +62,7 @@ const line = keyframes`
 
 export const HeaderBox = styled.header`
    position: absolute;
+   z-index: 5;
    width: 100%;
 
    ${Container} {
@@ -43,12 +78,13 @@ export const HeaderBox = styled.header`
 
       li {
          a {
-            padding: 40px 5px 5px 5px;
+            padding: 40px 5px 5px 15px;
             font-size: ${({ theme }) => theme.sizes.m};
             transition: ${({ theme }) => theme.transition('all')};
             background-color: ${({ theme }) => theme.colors.mainWhiteBg};
             color: ${({ theme }) => theme.colors.mainBlackText};
             font-weight: 500;
+            border-bottom-left-radius: 30px;
 
             &:hover {
                color: ${({ theme }) => theme.colors.mainAccent};
@@ -64,9 +100,9 @@ export const HeaderBox = styled.header`
                content: '';
                display: block;
                position: absolute;
-               bottom: 0;
-               left: 0;
-               width: 100%;
+               bottom: -10px;
+               right: 0;
+               width: 70%;
                height: 4px;
                background-color: ${({ theme }) => theme.colors.mainAccent};
 
@@ -97,6 +133,8 @@ const lampRotation0 = keyframes`
 
 export const LampButton = styled.button`
    transition: ${({ theme }) => theme.transition('transform')};
+   position: relative;
+   z-index: 1;
 
    &:hover {
       transform: scale(1.2);
@@ -114,18 +152,25 @@ export const LampButton = styled.button`
 export const MainBox = styled.div`
    display: flex;
    height: 100vh;
+   gap: 15px;
 `;
 
 export const BackgroundImage = styled.div`
-   width: 50%;
-   background-image: url(${photo5});
-   background-position: center;
+   width: ${({ pathname }) => (pathname === '/news' ? '0%' : '50%')};
+   position: relative;
+   display: flex;
+   justify-content: center;
+   overflow: hidden;
+
+   img {
+      width: unset;
+   }
 `;
 
 export const InfoArticle = styled.div`
    padding-top: 150px;
    color: ${({ theme }) => theme.colors.mainWhiteText};
-   width: 50%;
+   width: ${({ pathname }) => (pathname === '/news' ? '100%' : '50%')};
 `;
 
 export const ProjectPageBox = styled.div`
@@ -137,6 +182,9 @@ export const ProjectPageBox = styled.div`
       gap: 15px;
       height: 450px;
       overflow-y: scroll;
+
+      scrollbar-width: thin;
+      scrollbar-color: ${({ theme }) => theme.colors.mainAccent} rgba(255, 255, 255, 0.15);
 
       &::-webkit-scrollbar {
          width: 8px; /* ширина всей полосы прокрутки */
@@ -214,13 +262,6 @@ export const PageTitle = styled.h2`
    font-weight: 300;
 `;
 
-export const FooterComponent = styled.footer`
-   height: 10vh;
-   background-color: ${({ theme }) => theme.colors.mainBlackBg};
-   display: flex;
-   align-items: center;
-   color: ${({ theme }) => theme.colors.mainWhiteText};
-`;
 export const FooterBox = styled.div`
    display: flex;
    gap: 10px;
@@ -239,12 +280,43 @@ export const ContactsPageBox = styled.div`
       display: flex;
       flex-direction: column;
       gap: 15px;
+      align-items: center;
+
+      a {
+         transition: ${({ theme }) => theme.transition('color')};
+         &:hover {
+            color: ${({ theme }) => theme.colors.mainAccent};
+         }
+      }
    }
 `;
 
-export const MemsPageBox = styled.div``;
+export const NewsPageBox = styled.div`
+   ul {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      height: 450px;
+      overflow-y: scroll;
+
+      scrollbar-width: thin;
+      scrollbar-color: ${({ theme }) => theme.colors.mainAccent} rgba(255, 255, 255, 0.15);
+
+      &::-webkit-scrollbar {
+         width: 8px; /* ширина всей полосы прокрутки */
+      }
+      &::-webkit-scrollbar-track {
+         background-color: rgba(255, 255, 255, 0.15); /* цвет зоны отслеживания */
+      }
+      &::-webkit-scrollbar-thumb {
+         background-color: ${({ theme }) => theme.colors.mainAccent}; /* цвет бегунка */
+         border-radius: 5px; /* округлось бегунка */
+      }
+   }
+`;
 
 export const LoaderBox = styled.div`
+   position: relative;
    display: flex;
    align-items: center;
    justify-content: center;

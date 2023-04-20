@@ -1,26 +1,28 @@
 import { makePersistable } from 'mobx-persist-store';
-const { GET_ALL_MEMS } = require('API/memsApi');
+
+const { GET_ALL_NEWS } = require('API/newsApi');
 const { makeAutoObservable, runInAction } = require('mobx');
 
-class MemsStore {
+class NewsStore {
    isLoading = false;
-   memslist = [];
+   newslist = [];
    error = '';
 
    constructor() {
       makeAutoObservable(this, {}, { autoBind: true });
       makePersistable(this, {
-         name: 'memsList',
-         properties: ['memslist'],
+         name: 'newsList',
+         properties: ['newslist'],
          storage: window.localStorage,
       });
    }
 
-   async getMems() {
+   async getNews() {
       this.isLoading = true;
       try {
-         const list = await GET_ALL_MEMS();
-         runInAction(() => (this.memslist = list));
+         const list = await GET_ALL_NEWS();
+         console.log(list);
+         runInAction(() => (this.newslist = list));
       } catch (e) {
          runInAction(() => (this.error = e.message));
       } finally {
@@ -29,4 +31,4 @@ class MemsStore {
    }
 }
 
-export const memsStore = new MemsStore();
+export const newsStore = new NewsStore();

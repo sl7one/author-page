@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { AboutPage } from 'Pages/AboutPage';
 import { ContactsPage } from 'Pages/ContactsPage';
 import { ErrorPage } from 'Pages/ErrorPage';
-import { MemsPage } from 'Pages/MemsPage';
+// import { NewsPage } from 'Pages/NewsPage';
 import { ProjectsPage } from 'Pages/ProjectsPage';
 import { SkillsPage } from 'Pages/SkillsPage';
 
@@ -35,10 +35,10 @@ const publicRouter = createBrowserRouter([
             path: 'contacts',
             element: <ContactsPage />,
          },
-         {
-            path: 'mems',
-            element: <MemsPage />,
-         },
+         // {
+         //    path: 'news',
+         //    element: <NewsPage />,
+         // },
       ],
    },
 ]);

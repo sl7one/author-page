@@ -35,9 +35,9 @@ export const Header = ({ themeSwitcher, flag }) => {
                   <li>
                      <NavLink to="contacts">Contacts</NavLink>
                   </li>
-                  <li>
-                     <NavLink to="mems">MEMS</NavLink>
-                  </li>
+                  {/* <li>
+                     <NavLink to="news">NEWS</NavLink>
+                  </li> */}
                </ul>
             </nav>
          </Container>
