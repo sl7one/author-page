@@ -19,6 +19,7 @@ const publicRouter = createBrowserRouter([
       element: <App />,
       errorElement: <ErrorPage />,
       children: [
+         { index: true, element: <AboutPage /> },
          {
             path: 'about',
             element: <AboutPage />,
