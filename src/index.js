@@ -15,7 +15,7 @@ import './styles/reset.css';
 
 const publicRouter = createBrowserRouter([
    {
-      path: '/',
+      path: '/author-page',
       element: <App />,
       errorElement: <ErrorPage />,
       children: [
