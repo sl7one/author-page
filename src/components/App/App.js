@@ -10,9 +10,6 @@ import { themeDark, themeLight } from 'styles/theme';
 
 import photo7 from '../../assets/img/photo7.png';
 
-// import photo8 from '../../assets/img/photo8.png';
-// import photo9 from '../../assets/img/photo9.png';
-
 const init = () => {
    if (store.get('theme') === 'light') return { theme: themeLight, flag: false };
    return { theme: themeDark, flag: true };
@@ -22,11 +19,6 @@ export const App = () => {
    const [theme, setTheme] = useState(init().theme);
    const [flag, setFlag] = useState(init().flag);
    const { pathname } = useLocation();
-   // const navigation = useNavigate();
-
-   // useEffect(() => {
-   //    navigation('/author-page/about');
-   // }, [navigation]);
 
    const themeSwitcher = () => {
       setFlag((prev) => !prev);

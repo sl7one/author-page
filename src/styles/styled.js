@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
 export const AppBox = styled.div`
-   background-color: ${({ theme }) => theme.colors.mainBlackBg};
+   /* background-color: ${({ theme }) => theme.colors.mainBlackBg}; */
    color: ${({ theme }) => theme.colors.mainBlackText};
    font-family: Nunito, sans-serif;
    font-size: 18px;
@@ -33,7 +33,7 @@ export const BackgroundVideoBox = styled.div`
    position: absolute;
    top: 0;
    left: 0;
-   z-index: 0;
+   z-index: -1;
    height: 100vh;
    width: 100%;
    overflow: hidden;
@@ -48,7 +48,7 @@ export const BackgroundVideoBox = styled.div`
 `;
 
 export const Container = styled.div`
-   /* padding: 0 80px; */
+   padding: 0 80px 0 0;
 `;
 
 const line = keyframes`
@@ -238,6 +238,7 @@ export const SkillsPageBox = styled.div`
       display: flex;
       gap: 10px;
       margin-top: 30px;
+      flex-wrap: wrap;
 
       div {
          display: flex;

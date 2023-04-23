@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 import { API_KEY } from 'API/newsApi';
 import { Loader } from 'components/Loader/Loader';
-import { motion } from 'framer-motion';
 import { observer } from 'mobx-react-lite';
 import { newsStore } from 'store/newsStore';
 import { NewsPageBox, PageBox } from 'styles/styled';
@@ -19,18 +18,7 @@ export const NewsPage = observer(() => {
          {isLoading ? (
             <Loader isVisible={isLoading} />
          ) : (
-            <NewsPageBox
-               as={motion.div}
-               initial={{ opacity: 0 }}
-               animate={{ y: 100, opacity: 1 }}
-               transition={{
-                  type: 'spring',
-                  bounce: 1,
-                  mass: 1.2,
-                  velocity: 5,
-                  restSpeed: 0.5,
-               }}
-            >
+            <NewsPageBox>
                <PageBox>
                   <ul>
                      {newslist.map(

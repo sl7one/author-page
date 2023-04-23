@@ -1,39 +1,41 @@
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+import { contactsLinks } from 'assets/contactsLinks/contactsLinks';
+import { GSAPWrapper } from 'components/GSAPWrapper/GSAPWrapper';
+import { gsap } from 'gsap';
 import { ContactsPageBox, PageBox } from 'styles/styled';
 
 export const ContactsPage = () => {
-   return (
-      <ContactsPageBox
-         as={motion.div}
-         initial={{ opacity: 0 }}
-         animate={{ y: 100, opacity: 1 }}
-         transition={{
-            type: 'spring',
-            bounce: 1,
-            mass: 1.2,
-            velocity: 5,
-            restSpeed: 0.5,
-         }}
+   const ref = useRef([]);
+   useEffect(() => {
+      gsap.fromTo(
+         ref.current,
+         { y: -25 },
+         {
+            y: 0,
+            duration: 0.35,
+            stagger: 0.15,
+            ease: 'back.out',
+         }
+      );
+   }, []);
+
+   const items = contactsLinks.map(({ link, label }) => (
+      <li
+         key={label}
+         ref={(item) => ref.current.push(item)}
       >
-         <PageBox>
-            <ul>
-               <li>
-                  <a href="tel:+380635942909">+38 (063) 594-29-09</a>
-               </li>
-               <li>
-                  <a href="mailto: sl7one@ukr.net">sl7one@ukr.net</a>
-               </li>
-               <li>
-                  <a href="https://t.me/sl7one">Telegramm</a>
-               </li>
-               <li>
-                  <a href="https://www.linkedin.com/in/sl7one/">LinkedIn</a>
-               </li>
-               <li>
-                  <a href="https://github.com/sl7one">GitHub</a>
-               </li>
-            </ul>
-         </PageBox>
-      </ContactsPageBox>
+         <a href={link}>{label}</a>{' '}
+      </li>
+   ));
+
+   return (
+      <GSAPWrapper>
+         <ContactsPageBox>
+            <PageBox>
+               <ul>{items}</ul>
+            </PageBox>
+         </ContactsPageBox>
+      </GSAPWrapper>
    );
 };

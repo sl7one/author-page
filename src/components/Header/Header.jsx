@@ -1,10 +1,40 @@
+import { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { routes } from 'assets/routes/routes';
+import { gsap } from 'gsap';
 import { Container, HeaderBox, LampButton } from 'styles/styled';
 
 import icons from '../../assets/icons/lamp.svg';
+import soundOnClick from '../../assets/sounds/flores.mp3';
 
 export const Header = ({ themeSwitcher, flag }) => {
+   const refAudio = useRef();
+   const refItem = useRef([]);
+
+   useEffect(() => {
+      gsap.fromTo(
+         refItem.current,
+         { y: -50, rotate: -25 },
+         { y: 0, duration: 0.65, stagger: 0.2, ease: 'back.out' }
+      );
+   }, []);
+
+   const onClick = () => {
+      refAudio.current.play();
+   };
+
+   const items = routes.slice(1).map(({ path, title }) => (
+      <li ref={(el) => refItem.current.push(el)}>
+         <NavLink
+            onClick={onClick}
+            to={path}
+         >
+            {title}
+         </NavLink>
+      </li>
+   ));
+
    return (
       <HeaderBox>
          <Container>
@@ -22,24 +52,12 @@ export const Header = ({ themeSwitcher, flag }) => {
                </svg>
             </LampButton>
             <nav>
-               <ul>
-                  <li>
-                     <NavLink to="about">About me</NavLink>
-                  </li>
-                  <li>
-                     <NavLink to="skills">Skills</NavLink>
-                  </li>
-                  <li>
-                     <NavLink to="projects">Projects</NavLink>
-                  </li>
-                  <li>
-                     <NavLink to="contacts">Contacts</NavLink>
-                  </li>
-                  {/* <li>
-                     <NavLink to="news">NEWS</NavLink>
-                  </li> */}
-               </ul>
+               <ul>{items}</ul>
             </nav>
+            <audio
+               src={soundOnClick}
+               ref={refAudio}
+            ></audio>
          </Container>
       </HeaderBox>
    );
