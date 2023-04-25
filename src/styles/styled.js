@@ -1,5 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 
+import errorImg from '../assets/img/404-error-page.jpg';
+
 export const AppBox = styled.div`
    /* background-color: ${({ theme }) => theme.colors.mainBlackBg}; */
    color: ${({ theme }) => theme.colors.mainBlackText};
@@ -323,4 +325,23 @@ export const LoaderBox = styled.div`
    justify-content: center;
    width: 100%;
    height: 100%;
+`;
+
+export const ErrorPageBox = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100vw;
+   height: 100vh;
+   background-image: url(${errorImg});
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   button {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 24px;
+   }
 `;
