@@ -3,8 +3,9 @@ import { GSAPWrapper } from 'components/GSAPWrapper/GSAPWrapper';
 import { PageBox, PageTitle, ProjectPageBox } from 'styles/styled';
 
 export const ProjectsPage = () => {
-   const items = projectsList.map(
-      ({ livePageLink, gitHubLink, title, description, utils }) => {
+   const items = projectsList
+      .reverse()
+      .map(({ livePageLink, gitHubLink, title, description, utils }) => {
          return (
             <li key={title}>
                <p>
@@ -36,8 +37,7 @@ export const ProjectsPage = () => {
                <p>{description}</p>
             </li>
          );
-      }
-   );
+      });
 
    return (
       <GSAPWrapper>
