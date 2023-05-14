@@ -4,7 +4,7 @@ import { Triangle } from 'react-loader-spinner';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { ErrorPage } from 'Pages/ErrorPage';
-import { routes } from 'assets/routes/routes';
+import { routes } from 'routes/routes';
 
 import { App } from './components/App/App';
 import './styles/index.css';

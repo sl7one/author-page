@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
-import { routes } from 'assets/routes/routes';
 import { gsap } from 'gsap';
+import { routes } from 'routes/routes';
 import { Container, HeaderBox, LampButton } from 'styles/styled';
 
 import icons from '../../assets/icons/lamp.svg';

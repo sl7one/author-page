@@ -1,6 +1,6 @@
-import { projectsList } from 'assets/projectList/projectList';
 import { GSAPWrapper } from 'components/GSAPWrapper/GSAPWrapper';
 import { PageBox, PageTitle, ProjectPageBox } from 'styles/styled';
+import { projectsList } from 'utils/projectList/projectList';
 
 export const ProjectsPage = () => {
    const items = projectsList

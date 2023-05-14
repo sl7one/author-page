@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-import { contactsLinks } from 'assets/contactsLinks/contactsLinks';
 import { GSAPWrapper } from 'components/GSAPWrapper/GSAPWrapper';
 import { gsap } from 'gsap';
 import { ContactsPageBox, PageBox } from 'styles/styled';
+import { contactsLinks } from 'utils/contactsLinks/contactsLinks';
 
 export const ContactsPage = () => {
    const ref = useRef([]);

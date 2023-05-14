@@ -50,7 +50,7 @@ export const BackgroundVideoBox = styled.div`
 `;
 
 export const Container = styled.div`
-   padding: 0 80px 0 0;
+   padding: 0 40px;
 `;
 
 const line = keyframes`
@@ -158,7 +158,8 @@ export const MainBox = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-   width: ${({ pathname }) => (pathname === '/news' ? '0%' : '50%')};
+   width: ${({ pathname }) => (pathname === '/tetris' ? '0%' : '50%')};
+   transition: ${({ theme }) => theme.transition('width')};
    position: relative;
    display: flex;
    justify-content: center;
@@ -171,8 +172,11 @@ export const BackgroundImage = styled.div`
 
 export const InfoArticle = styled.div`
    padding-top: 150px;
+   padding-right: 40px;
    color: ${({ theme }) => theme.colors.mainWhiteText};
-   width: ${({ pathname }) => (pathname === '/news' ? '100%' : '50%')};
+   width: ${({ pathname }) => (pathname === '/tetris' ? '100%' : '50%')};
+   transition: ${({ theme }) => theme.transition('width')};
+   overflow-y: hidden;
 `;
 
 export const ProjectPageBox = styled.div`
@@ -294,28 +298,10 @@ export const ContactsPageBox = styled.div`
    }
 `;
 
-export const NewsPageBox = styled.div`
-   ul {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      height: 450px;
-      overflow-y: scroll;
-
-      scrollbar-width: thin;
-      scrollbar-color: ${({ theme }) => theme.colors.mainAccent} rgba(255, 255, 255, 0.15);
-
-      &::-webkit-scrollbar {
-         width: 8px; /* ширина всей полосы прокрутки */
-      }
-      &::-webkit-scrollbar-track {
-         background-color: rgba(255, 255, 255, 0.15); /* цвет зоны отслеживания */
-      }
-      &::-webkit-scrollbar-thumb {
-         background-color: ${({ theme }) => theme.colors.mainAccent}; /* цвет бегунка */
-         border-radius: 5px; /* округлось бегунка */
-      }
-   }
+export const TetrisBox = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
 `;
 
 export const LoaderBox = styled.div`
@@ -325,6 +311,161 @@ export const LoaderBox = styled.div`
    justify-content: center;
    width: 100%;
    height: 100%;
+`;
+
+export const MeshList = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: flex-end;
+   width: ${({ width }) => width + 'px'};
+   position: relative;
+
+   div[title='mesh'] {
+      box-sizing: border-box;
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+   }
+`;
+
+export const BoxElementBox = styled.div`
+   width: 100px;
+   display: flex;
+   flex-wrap: wrap;
+   position: absolute;
+   top: ${({ top }) => top + 'px'};
+   left: ${({ left }) => left + 'px'};
+   transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+
+   transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   div[title='element'] {
+      width: ${({ width }) => width + 'px'};
+      height: ${({ height }) => height + 'px'};
+      box-sizing: border-box;
+      background-color: blue;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+   }
+`;
+
+export const LineElementBox = styled.div`
+   width: 200px;
+   display: flex;
+   position: absolute;
+   top: ${({ top }) => top + 'px'};
+   left: ${({ left }) => left + 'px'};
+   transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+
+   transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   div[title='element'] {
+      width: ${({ width }) => width + 'px'};
+      height: ${({ height }) => height + 'px'};
+      box-sizing: border-box;
+      background-color: green;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+   }
+`;
+
+export const TElementBox = styled.div`
+   width: 150px;
+   display: flex;
+   flex-wrap: wrap;
+   position: absolute;
+   top: ${({ top }) => top + 'px'};
+   left: ${({ left }) => left + 'px'};
+   transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+
+   transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   div[title='element'] {
+      width: ${({ width }) => width + 'px'};
+      height: ${({ height }) => height + 'px'};
+      box-sizing: border-box;
+      background-color: cyan;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+
+      &:nth-of-type(1) {
+         border: unset;
+         background-color: unset;
+      }
+      &:nth-of-type(3) {
+         border: unset;
+         background-color: unset;
+      }
+   }
+`;
+
+export const CornerLeftElementBox = styled.div`
+   width: 150px;
+   display: flex;
+   flex-wrap: wrap;
+   position: absolute;
+   top: ${({ top }) => top + 'px'};
+   left: ${({ left }) => left + 'px'};
+   transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+
+   transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   div[title='element'] {
+      width: ${({ width }) => width + 'px'};
+      height: ${({ height }) => height + 'px'};
+      box-sizing: border-box;
+      background-color: orange;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+
+      &:nth-of-type(2) {
+         border: unset;
+         background-color: unset;
+      }
+      &:nth-of-type(3) {
+         border: unset;
+         background-color: unset;
+      }
+   }
+`;
+export const CornerRightElementBox = styled.div`
+   width: 150px;
+   display: flex;
+   flex-wrap: wrap;
+   position: absolute;
+   top: ${({ top }) => top + 'px'};
+   left: ${({ left }) => left + 'px'};
+   transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+
+   transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
+
+   div[title='element'] {
+      width: ${({ width }) => width + 'px'};
+      height: ${({ height }) => height + 'px'};
+      box-sizing: border-box;
+      background-color: orange;
+      border: 1px solid rgb(0, 0, 0, 0.1);
+
+      &:nth-of-type(1) {
+         border: unset;
+         background-color: unset;
+      }
+      &:nth-of-type(2) {
+         border: unset;
+         background-color: unset;
+      }
+   }
+`;
+
+export const ButtonControlsBox = styled.button`
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: white;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   position: fixed;
+   bottom: 5%;
+   right: 5%;
 `;
 
 export const ErrorPageBox = styled.div`

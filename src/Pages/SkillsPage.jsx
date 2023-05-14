@@ -1,7 +1,7 @@
 import { GSAPWrapper } from 'components/GSAPWrapper/GSAPWrapper';
 import { PageBox, PageTitle, SkillsPageBox } from 'styles/styled';
 
-import { languagesList, softList, stackList } from '../assets/skillsList/skillsList';
+import { languagesList, softList, stackList } from '../utils/skillsList/skillsList';
 
 export const SkillsPage = () => {
    return (

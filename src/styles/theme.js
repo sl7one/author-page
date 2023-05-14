@@ -4,6 +4,7 @@ const sizes = {
 };
 
 const transition = (option) => `${option} 350ms ease-in-out`;
+const tetrisTransition = () => 'all 350ms cubic-bezier(0.23, 1, 0.32, 1)';
 
 export const themeDark = {
    colors: {
@@ -16,6 +17,7 @@ export const themeDark = {
    },
    sizes,
    transition,
+   tetrisTransition,
 };
 
 export const themeLight = {
@@ -29,4 +31,5 @@ export const themeLight = {
    },
    sizes,
    transition,
+   tetrisTransition,
 };
