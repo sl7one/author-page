@@ -60,6 +60,7 @@ export const Header = ({ themeSwitcher, flag }) => {
                   <use href={icons + '#icon-lamp'}></use>
                </svg>
             </LampButton>
+
             <nav>
                <ul>{items}</ul>
             </nav>

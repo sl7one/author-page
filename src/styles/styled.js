@@ -440,7 +440,7 @@ export const CornerRightElementBox = styled.div`
       width: ${({ width }) => width + 'px'};
       height: ${({ height }) => height + 'px'};
       box-sizing: border-box;
-      background-color: orange;
+      background-color: yellowgreen;
       border: 1px solid rgb(0, 0, 0, 0.1);
 
       &:nth-of-type(1) {

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { useIsTransitionStarted } from 'hooks/useIsTransitionStarted';
+import { useKeyboadrControls } from 'hooks/useKeyboadrControls';
 import { useSetRefToStore } from 'hooks/useSetRefToStore';
 import { observer } from 'mobx-react-lite';
 import { gameStore } from 'store/gameStore';
@@ -11,9 +11,23 @@ const { BoxElementBox } = require('styles/styled');
 
 export const BoxElement = observer(() => {
    const ref = useRef(null);
-   const { size, setElement, setIsTransitionRun, element } = gameStore;
-   useIsTransitionStarted({ ref, setIsTransitionRun });
+   const {
+      size,
+      setElement,
+      moveLeft,
+      moveRight,
+      rotateElementLeft,
+      rotateElementRight,
+      element,
+   } = gameStore;
+
    useSetRefToStore({ ref, setElement });
+   useKeyboadrControls({
+      moveLeft,
+      moveRight,
+      rotateElementLeft,
+      rotateElementRight,
+   });
 
    return (
       <BoxElementBox

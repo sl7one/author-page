@@ -1,4 +1,7 @@
-import { getStaticParams } from 'utils/getStaticParams/getStaticParams';
+import { getDynamicParams } from 'utils/getDynamicParams/getDynamicParams';
+import { normalizeFirstRenderPosition } from 'utils/normalizeFirstRenderPosition/normalizeFirstRenderPosition';
+import { normalizePositionAfterRotate } from 'utils/normalizePositionAfterRotate/normalizePositionAfterRotate';
+import { normalizeWidthHeightAfterRotate } from 'utils/normalizeWidthHeightAfterRotate/normalizeWidthHeightAfterRotate';
 
 const { makeAutoObservable } = require('mobx');
 
@@ -7,9 +10,8 @@ class GameStore {
    element = { ref: null, staticParams: {} };
    mesh = { ref: null, staticParams: {}, width: 12 * 50 };
    size = 50;
-   isTransitionRun = false;
    isGameStarted = false;
-   speedMoveDown = 1500;
+   speedMoveDown = 1000;
    array = [];
 
    constructor() {
@@ -17,25 +19,26 @@ class GameStore {
    }
 
    moveLeft() {
-      if (this.isTransitionRun) return;
-      const elLeft = this.element.staticParams.left;
+      const { elLeft } = this.getEl();
+
       if (elLeft <= 0) return;
 
       this.element.staticParams.left -= this.size;
    }
 
    moveRight() {
-      if (this.isTransitionRun) return;
-      const elLeft = this.element.staticParams.left;
-      if (elLeft >= 600 - this.element.staticParams.width) return;
+      const { elLeft } = this.getEl();
+      const { elWidth } = this.getEl();
+      const { meshWidth } = this.getMesh();
+      if (elLeft >= meshWidth - elWidth) return;
 
       this.element.staticParams.left += this.size;
    }
 
    moveDown() {
-      const elTop = this.element.staticParams.top;
-      const { height: elHeight } = getStaticParams(this.element.ref);
-      const meshHeight = this.mesh.staticParams.height;
+      const { elTop } = this.getEl();
+      const { height: elHeight } = getDynamicParams(this.element.ref);
+      const { meshHeight } = this.getMesh();
 
       if (elTop >= meshHeight - elHeight) return;
 
@@ -43,49 +46,35 @@ class GameStore {
    }
 
    rotateElementLeft() {
-      console.log('object');
-      this.element.staticParams.rotate -= 90;
-      const { width } = getStaticParams(this.element.ref);
+      const { type } = this.getEl();
+      if (type === 'box') return;
 
-      if (width === 100) {
-         this.element.staticParams.left -= 25;
-         this.element.staticParams.top -= 25;
-      } else {
-         this.element.staticParams.left += 25;
-         this.element.staticParams.top += 25;
-      }
+      this.element.staticParams.rotate -= 90;
+      normalizeWidthHeightAfterRotate(this.element, this.getEl);
+      normalizePositionAfterRotate(this.element, this.getEl, this.size);
    }
 
    rotateElementRight() {
+      const { type } = this.getEl();
+      if (type === 'box') return;
+
       this.element.staticParams.rotate += 90;
-
-      const { width } = getStaticParams(this.element.ref);
-
-      if (width === 100) {
-         this.element.staticParams.left -= 25;
-         this.element.staticParams.top -= 25;
-      } else {
-         this.element.staticParams.left += 25;
-         this.element.staticParams.top += 25;
-      }
+      normalizeWidthHeightAfterRotate(this.element, this.getEl);
+      normalizePositionAfterRotate(this.element, this.getEl, this.size);
    }
 
    setElement(element) {
       this.element.ref = element;
-      this.element.staticParams = getStaticParams(element);
-      this.element.staticParams.left = this.mesh.staticParams.width / 2 - this.size;
+      this.element.staticParams = getDynamicParams(element);
+      normalizeFirstRenderPosition(this.element, this.mesh, this.size);
+
       this.element.staticParams.top = 0;
       this.element.staticParams.rotate = 0;
    }
 
    setMesh(element) {
       this.mesh.ref = element;
-      this.mesh.staticParams = getStaticParams(element);
-      console.log(this.mesh.staticParams.height);
-   }
-
-   setIsTransitionRun(bool) {
-      this.isTransitionRun = bool;
+      this.mesh.staticParams = getDynamicParams(element);
    }
 
    startGame() {
@@ -93,13 +82,62 @@ class GameStore {
       this.isGameStarted = true;
    }
 
-   stopGame() {
+   stopMoveDown() {
       clearInterval(this.element.timer);
       this.isGameStarted = false;
    }
 
    nextElement() {
       this.array.push(15);
+   }
+
+   getEl() {
+      const {
+         bottom: elBottom,
+         top: elTop,
+         x: elX,
+         y: elY,
+         right: elRight,
+         left: elLeft,
+         width: elWidth,
+         height: elHeight,
+         type: elType,
+         rotate: elRotate,
+      } = this.element.staticParams;
+      return {
+         elBottom,
+         elTop,
+         elX,
+         elY,
+         elRight,
+         elLeft,
+         elWidth,
+         elHeight,
+         elType,
+         elRotate,
+      };
+   }
+   getMesh() {
+      const {
+         bottom: meshBottom,
+         top: meshTop,
+         x: meshX,
+         y: meshY,
+         right: meshRight,
+         left: meshLeft,
+         width: meshWidth,
+         height: meshHeight,
+      } = this.mesh.staticParams;
+      return {
+         meshBottom,
+         meshTop,
+         meshX,
+         meshY,
+         meshRight,
+         meshLeft,
+         meshWidth,
+         meshHeight,
+      };
    }
 }
 

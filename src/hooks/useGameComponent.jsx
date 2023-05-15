@@ -21,18 +21,5 @@ export const useGameComponent = () => {
    //    default:
    //       return null;
    // }
-   switch (randomNumberInRange(1, 5)) {
-      case 1:
-         return <TElement />;
-      case 2:
-         return <TElement />;
-      case 3:
-         return <TElement />;
-      case 4:
-         return <TElement />;
-      case 5:
-         return <TElement />;
-      default:
-         return null;
-   }
+   return <CornerRightElement />;
 };

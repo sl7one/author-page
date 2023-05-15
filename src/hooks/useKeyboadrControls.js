@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 
-import { observer } from 'mobx-react-lite';
-import { gameStore } from 'store/gameStore';
-
-export const KeyboadrControls = observer(() => {
-   const { moveLeft, moveRight, rotateElementLeft, rotateElementRight } = gameStore;
-
+export const useKeyboadrControls = ({
+   moveLeft,
+   moveRight,
+   rotateElementLeft,
+   rotateElementRight,
+}) => {
    useEffect(() => {
       const keyPress = ({ key }) => {
          switch (key) {
@@ -30,6 +30,4 @@ export const KeyboadrControls = observer(() => {
          window.removeEventListener('keydown', keyPress);
       };
    }, [moveLeft, moveRight, rotateElementLeft, rotateElementRight]);
-
-   return <div></div>;
-});
+};

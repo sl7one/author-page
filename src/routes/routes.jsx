@@ -2,8 +2,7 @@ import { AboutPage } from 'Pages/AboutPage';
 import { ContactsPage } from 'Pages/ContactsPage';
 import { ProjectsPage } from 'Pages/ProjectsPage';
 import { SkillsPage } from 'Pages/SkillsPage';
-
-// import { Tetris } from 'Pages/Tetris';
+import { Tetris } from 'Pages/Tetris';
 
 export const routes = [
    { index: true, element: <AboutPage /> },
