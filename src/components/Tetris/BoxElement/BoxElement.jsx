@@ -19,9 +19,15 @@ export const BoxElement = observer(() => {
       rotateElementLeft,
       rotateElementRight,
       element,
+      mesh,
    } = gameStore;
 
-   useSetRefToStore({ ref, setElement });
+   useSetRefToStore({
+      ref,
+      setElement,
+      mesh,
+   });
+
    useKeyboadrControls({
       moveLeft,
       moveRight,
@@ -36,6 +42,7 @@ export const BoxElement = observer(() => {
          left={element.staticParams.left}
          top={element.staticParams.top}
          rotate={element.staticParams.rotate}
+         opacity={element.staticParams.opacity}
          ref={ref}
          type="box"
       >

@@ -15,12 +15,13 @@ export const CornerRightElement = observer(() => {
       size,
       setElement,
       element,
+      mesh,
       moveLeft,
       moveRight,
       rotateElementLeft,
       rotateElementRight,
    } = gameStore;
-   useSetRefToStore({ ref, setElement });
+   useSetRefToStore({ ref, setElement, mesh });
    useKeyboadrControls({
       moveLeft,
       moveRight,

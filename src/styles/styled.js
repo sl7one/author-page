@@ -313,19 +313,21 @@ export const LoaderBox = styled.div`
    height: 100%;
 `;
 
-export const MeshList = styled.div`
+export const MeshBox = styled.div`
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    align-items: flex-end;
    width: ${({ width }) => width + 'px'};
    position: relative;
+   overflow-y: hidden;
 
    div[title='mesh'] {
       box-sizing: border-box;
       width: 50px;
       height: 50px;
       border: 1px solid rgb(0, 0, 0, 0.1);
+      transition: all 350ms ease-in;
    }
 `;
 
@@ -337,6 +339,7 @@ export const BoxElementBox = styled.div`
    top: ${({ top }) => top + 'px'};
    left: ${({ left }) => left + 'px'};
    transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+   opacity: ${({ opacity }) => opacity};
 
    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -356,6 +359,7 @@ export const LineElementBox = styled.div`
    top: ${({ top }) => top + 'px'};
    left: ${({ left }) => left + 'px'};
    transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+   opacity: ${({ opacity }) => opacity};
 
    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -376,6 +380,7 @@ export const TElementBox = styled.div`
    top: ${({ top }) => top + 'px'};
    left: ${({ left }) => left + 'px'};
    transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+   opacity: ${({ opacity }) => opacity};
 
    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -405,6 +410,7 @@ export const CornerLeftElementBox = styled.div`
    top: ${({ top }) => top + 'px'};
    left: ${({ left }) => left + 'px'};
    transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+   opacity: ${({ opacity }) => opacity};
 
    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
 
@@ -425,6 +431,7 @@ export const CornerLeftElementBox = styled.div`
       }
    }
 `;
+
 export const CornerRightElementBox = styled.div`
    width: 150px;
    display: flex;
@@ -433,6 +440,7 @@ export const CornerRightElementBox = styled.div`
    top: ${({ top }) => top + 'px'};
    left: ${({ left }) => left + 'px'};
    transform: ${({ rotate }) => `rotate(${rotate + 'deg'})`};
+   opacity: ${({ opacity }) => opacity};
 
    transition: all 350ms cubic-bezier(0.23, 1, 0.32, 1);
 

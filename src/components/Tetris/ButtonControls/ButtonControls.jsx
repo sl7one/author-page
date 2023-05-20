@@ -3,13 +3,18 @@ import { gameStore } from 'store/gameStore';
 import { ButtonControlsBox } from 'styles/styled';
 
 export const ButtonControls = observer(() => {
-   const { startGame, stopMoveDown, isGameStarted } = gameStore;
+   const { startGame, pauseMoveDown, pauseGame, isGameStarted } = gameStore;
+
+   const pause = () => {
+      pauseMoveDown();
+      pauseGame();
+   };
 
    return (
       <>
          {isGameStarted ? (
             <ButtonControlsBox
-               onClick={() => stopMoveDown()}
+               onClick={pause}
                type="button"
             >
                Pause

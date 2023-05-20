@@ -15,12 +15,14 @@ export const LineElement = observer(() => {
       size,
       setElement,
       element,
+      mesh,
       moveLeft,
       moveRight,
       rotateElementLeft,
       rotateElementRight,
    } = gameStore;
-   useSetRefToStore({ ref, setElement });
+
+   useSetRefToStore({ ref, setElement, mesh });
    useKeyboadrControls({
       moveLeft,
       moveRight,
@@ -35,6 +37,7 @@ export const LineElement = observer(() => {
          left={element.staticParams.left}
          top={element.staticParams.top}
          rotate={element.staticParams.rotate}
+         opacity={element.staticParams.opacity}
          ref={ref}
          type="line"
       >
