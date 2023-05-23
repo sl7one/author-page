@@ -26,9 +26,9 @@ export const routes = [
       element: <ContactsPage />,
       title: 'Contacts',
    },
-   // {
-   //    path: 'tetris',
-   //    element: <Tetris />,
-   //    title: 'Tetris',
-   // },
+   {
+      path: 'tetris',
+      element: <Tetris />,
+      title: 'Tetris',
+   },
 ];

@@ -22,5 +22,5 @@ export const useGameComponent = () => {
          throw new Error('use Game Component');
    }
 
-   // return <LineElement />;
+   // return <TElement />;
 };

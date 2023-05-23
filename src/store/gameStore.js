@@ -13,7 +13,7 @@ class GameStore {
    mesh = { ref: null, staticParams: {}, filled: [], width: 12 * 50 };
    size = 50;
    isGameStarted = false;
-   speedMoveDown = 300;
+   speedMoveDown = 200;
 
    constructor() {
       makeAutoObservable(this, {}, { autoBind: true, deep: true });
