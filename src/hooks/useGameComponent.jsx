@@ -7,20 +7,20 @@ import { LineElement } from '../components/Tetris/LineElement/LineElement.jsx';
 import { TElement } from '../components/Tetris/TElement/TElement.jsx';
 
 export const useGameComponent = () => {
-   switch (randomNumberInRange(1, 5)) {
-      case 1:
-         return <BoxElement />;
-      case 2:
-         return <LineElement />;
-      case 3:
-         return <TElement />;
-      case 4:
-         return <CornerLeftElement />;
-      case 5:
-         return <CornerRightElement />;
-      default:
-         throw new Error('use Game Component');
-   }
+   // switch (randomNumberInRange(1, 5)) {
+   //    case 1:
+   //       return <BoxElement />;
+   //    case 2:
+   //       return <LineElement />;
+   //    case 3:
+   //       return <TElement />;
+   //    case 4:
+   //       return <CornerLeftElement />;
+   //    case 5:
+   //       return <CornerRightElement />;
+   //    default:
+   //       throw new Error('use Game Component');
+   // }
 
-   // return <TElement />;
+   return <TElement />;
 };
