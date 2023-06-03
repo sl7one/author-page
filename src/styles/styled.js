@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import errorImg from '../assets/img/404-error-page.jpg';
 
 export const AppBox = styled.div`
-   /* background-color: ${({ theme }) => theme.colors.mainBlackBg}; */
    color: ${({ theme }) => theme.colors.mainBlackText};
    font-family: Nunito, sans-serif;
    font-size: 18px;
@@ -180,13 +179,12 @@ export const InfoArticle = styled.div`
 `;
 
 export const ProjectPageBox = styled.div`
-   margin-top: -100px;
    ul {
       margin-top: 40px;
       display: flex;
       flex-direction: column;
       gap: 15px;
-      height: 450px;
+      height: 600px;
       overflow-y: scroll;
 
       scrollbar-width: thin;
@@ -242,7 +240,7 @@ export const PageBox = styled.div``;
 export const SkillsPageBox = styled.div`
    ${PageBox} {
       display: flex;
-      gap: 10px;
+      justify-content: space-between;
       margin-top: 30px;
       flex-wrap: wrap;
 

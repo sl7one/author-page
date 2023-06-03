@@ -21,7 +21,6 @@ export const SkillsPage = () => {
                   </ul>
                </div>
                <div>
-                  {' '}
                   <p name="title">
                      <span>[ </span>Soft skills<span> ]</span>
                   </p>

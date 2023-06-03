@@ -43,4 +43,11 @@ export const projectsList = [
       description: `Own pet-project. This landing page is about getting familiar with the GSAP library.`,
       utils: 'React, GSAP, Styled-components, React-select',
    },
+   {
+      livePageLink: 'https://sl7one.github.io/elifTech-test/',
+      gitHubLink: 'https://github.com/sl7one/elifTech-test',
+      title: 'ElifTech-delivery',
+      description: `Own pet-project. This is a prototype of a food delivery SPA (Single Page Application). Users can order food from a restaurant, add items to the cart, and place an order. Additionally, there is functionality available to save order history.`,
+      utils: 'MERN stack, GSAP, Styled-components, MobX, Router-dom',
+   },
 ];
