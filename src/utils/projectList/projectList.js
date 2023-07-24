@@ -50,4 +50,18 @@ export const projectsList = [
       description: `Own pet-project. This is a prototype of a food delivery SPA (Single Page Application). Users can order food from a restaurant, add items to the cart, and place an order. Additionally, there is functionality available to save order history.`,
       utils: 'MERN stack, GSAP, Styled-components, MobX, Router-dom',
    },
+   {
+      livePageLink: 'https://sl7one.github.io/rgb-test/',
+      gitHubLink: 'https://github.com/sl7one/rgb-test',
+      title: 'RGB',
+      description: `Front-end for RGB-company.`,
+      utils: 'React, React-router-dom, Styled-components, React-toastify, React-phone-number, Email.js',
+   },
+   {
+      livePageLink: 'https://sl7one.github.io/airo-medical-test/',
+      gitHubLink: 'https://github.com/sl7one/airo-medical-test',
+      title: 'Airo-medical',
+      description: `Own pet-project. Every one loves bear :-).`,
+      utils: 'React, React-router-dom, React-cool-virtual, React-tabs, Tooltip, TypeScript, Zustand',
+   },
 ];

@@ -2,7 +2,7 @@ export const stackList = [
    'HTML5/CSS3/SASS/JS',
    'Responsive/Adaptive design',
    'React, React Native',
-   'Redux, MobX',
+   'Redux, MobX, Zustand',
    'REST API',
    'Webpack',
    'Node js',
