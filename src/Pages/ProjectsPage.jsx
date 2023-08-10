@@ -4,7 +4,6 @@ import { projectsList } from 'utils/projectList/projectList';
 
 export const ProjectsPage = () => {
    const items = projectsList
-      .reverse()
       .map(({ livePageLink, gitHubLink, title, description, utils }) => {
          return (
             <li key={title}>

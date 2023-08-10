@@ -71,4 +71,4 @@ export const projectsList = [
       description: `Pet-project. Used fakestore API for backend. Accent on pure CSS and CSS transitions.`,
       utils: 'React, Zustand, Axios, Swiper, Notiflix',
    },
-];
+].reverse();
