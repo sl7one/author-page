@@ -184,7 +184,7 @@ export const ProjectPageBox = styled.div`
       display: flex;
       flex-direction: column;
       gap: 15px;
-      height: 600px;
+      height: 380px;
       overflow-y: scroll;
 
       scrollbar-width: thin;
