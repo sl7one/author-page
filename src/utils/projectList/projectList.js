@@ -64,4 +64,11 @@ export const projectsList = [
       description: `Own pet-project. Every one loves bear :-).`,
       utils: 'React, React-router-dom, React-cool-virtual, React-tabs, Tooltip, TypeScript, Zustand',
    },
+   {
+      livePageLink: 'https://sl7one.github.io/fake-store/',
+      gitHubLink: 'https://github.com/sl7one/fake-store',
+      title: 'Fake Store',
+      description: `Pet-project. Used fakestore API for backend. Accent on pure CSS and CSS transitions.`,
+      utils: 'React, Zustand, Axios, Swiper, Notiflix',
+   },
 ];
