@@ -65,6 +65,13 @@ export const projectsList = [
       utils: 'React, React-router-dom, React-cool-virtual, React-tabs, Tooltip, TypeScript, Zustand',
    },
    {
+      livePageLink: 'https://sl7one.github.io/palmira/',
+      gitHubLink: 'https://github.com/sl7one/palmira',
+      title: 'Palmira',
+      description: `Markup for commercial project. Mobile-first adaptive layout`,
+      utils: 'HTML, SASS, JS, JQuery, Slick',
+   },
+   {
       livePageLink: 'https://sl7one.github.io/fake-store/',
       gitHubLink: 'https://github.com/sl7one/fake-store',
       title: 'Fake Store',
@@ -72,3 +79,5 @@ export const projectsList = [
       utils: 'React, Zustand, Axios, Swiper, Notiflix',
    },
 ].reverse();
+
+
