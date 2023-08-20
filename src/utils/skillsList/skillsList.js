@@ -3,6 +3,7 @@ export const stackList = [
    'Responsive/Adaptive design',
    'React, React Native',
    'Redux, MobX, Zustand',
+   "TypeScript",
    'REST API',
    'Webpack',
    'Node js',

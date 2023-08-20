@@ -76,7 +76,7 @@ export const projectsList = [
       gitHubLink: 'https://github.com/sl7one/fake-store',
       title: 'Fake Store',
       description: `Pet-project. Used fakestore API for backend. Accent on pure CSS and CSS transitions.`,
-      utils: 'React, Zustand, Axios, Swiper, Notiflix',
+      utils: 'React, Zustand, Axios, Swiper, Notiflix, TypeScript',
    },
 ].reverse();
 
