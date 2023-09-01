@@ -26,7 +26,7 @@ export const projectsList = [
       gitHubLink: 'https://github.com/sl7one/react-pet-coronavirus-statistics',
       title: 'CoronaVirus-Stats',
       description: `Own pet-project. Simple API, coronavirus stast`,
-      utils: 'React, Styled-Components, Axios, React-modal, Store',
+      utils: 'React, Styled-Components, Axios, React-Modal, Store',
    },
 
    {
@@ -41,28 +41,28 @@ export const projectsList = [
       gitHubLink: 'https://github.com/sl7one/lgran-resto',
       title: 'LGran-resto',
       description: `Own pet-project. This landing page is about getting familiar with the GSAP library.`,
-      utils: 'React, GSAP, Styled-components, React-select',
+      utils: 'React, GSAP, Styled-Components, React-Select',
    },
    {
       livePageLink: 'https://sl7one.github.io/elifTech-test/',
       gitHubLink: 'https://github.com/sl7one/elifTech-test',
       title: 'ElifTech-delivery',
       description: `Own pet-project. This is a prototype of a food delivery SPA (Single Page Application). Users can order food from a restaurant, add items to the cart, and place an order. Additionally, there is functionality available to save order history.`,
-      utils: 'MERN stack, GSAP, Styled-components, MobX, Router-dom',
+      utils: 'MERN stack, GSAP, Styled-Components, MobX, Router-Dom',
    },
    {
       livePageLink: 'https://sl7one.github.io/rgb-test/',
       gitHubLink: 'https://github.com/sl7one/rgb-test',
       title: 'RGB',
       description: `Front-end for RGB-company.`,
-      utils: 'React, React-router-dom, Styled-components, React-toastify, React-phone-number, Email.js',
+      utils: 'React, React-Router-Dom, Styled-Components, Toastify, React-Phone-Number, Email.js',
    },
    {
       livePageLink: 'https://sl7one.github.io/airo-medical-test/',
       gitHubLink: 'https://github.com/sl7one/airo-medical-test',
       title: 'Airo-medical',
       description: `Own pet-project. Every one loves bear :-).`,
-      utils: 'React, React-router-dom, React-cool-virtual, React-tabs, Tooltip, TypeScript, Zustand',
+      utils: 'React, React-Router-Dom, React-Cool-Virtual, React-Tabs, Tooltip, TypeScript, Zustand',
    },
    {
       livePageLink: 'https://sl7one.github.io/palmira/',
@@ -77,6 +77,13 @@ export const projectsList = [
       title: 'Fake Store',
       description: `Pet-project. Used fakestore API for backend. Accent on pure CSS and CSS transitions.`,
       utils: 'React, Zustand, Axios, Swiper, Notiflix, TypeScript',
+   },
+   {
+      livePageLink: 'https://sl7one.github.io/Pets-Paw-react/',
+      gitHubLink: 'https://github.com/sl7one/Pets-Paw-react',
+      title: 'PetsPaw',
+      description: `Pet-project. Used api.thecatapi.com for backend. Friendly pure CSS transitions. Adaptive layout`,
+      utils: 'React,  Axios, Swiper, Toastify, React-Dropzone, React-Select, React-Router-Dom',
    },
 ].reverse();
 
