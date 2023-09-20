@@ -549,7 +549,7 @@ export const MessageFormBox = styled.div`
       }
 
       textarea {
-         height: 200px;
+         height: 170px;
          resize: none;
       }
 
