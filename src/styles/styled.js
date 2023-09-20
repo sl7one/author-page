@@ -492,3 +492,93 @@ export const ErrorPageBox = styled.div`
       font-size: 24px;
    }
 `;
+
+export const MessageFormBox = styled.div`
+   padding: 15px;
+   backdrop-filter: blur(10px);
+   border: 1px solid ${({ theme }) => theme.colors.mainAccent};
+   border-radius: 8px;
+   border-bottom-left-radius: 30px;
+   color: ${({ theme }) => theme.colors.mainAccent};
+
+   background-color: rgba(0, 0, 0, 0.8);
+
+   position: fixed;
+   bottom: 5%;
+   right: 5%;
+
+   transform: rotate(-25deg);
+   z-index: 10;
+
+   p {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      span {
+         font-size: 26px;
+         &:nth-of-type(2) {
+            /* font-size: 26px; */
+            cursor: pointer;
+            transform: scale(0);
+            position: absolute;
+            right: 15px;
+         }
+      }
+   }
+
+   form {
+      position: absolute;
+      width: calc(100% - 30px);
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 15px;
+
+      input,
+      textarea,
+      button {
+         padding: 10px;
+         outline: none;
+         border: 1px solid ${({ theme }) => theme.colors.mainAccent};
+         border-radius: 8px;
+         transform: scale(0);
+         opacity: 0;
+         transition: ${({ theme }) => theme.transition('all')};
+      }
+
+      textarea {
+         height: 200px;
+         resize: none;
+      }
+
+      input:not(:focus),
+      textarea:not(:focus) {
+         color: white;
+      }
+
+      input:focus,
+      textarea:focus {
+         background-color: rgba(255, 255, 255, 0.5);
+      }
+      button {
+         display: inline-block;
+         min-width: 150px;
+         margin-left: auto;
+         color: ${({ theme }) => theme.colors.mainAccent};
+         margin-bottom: 25px;
+
+         &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+         }
+
+         &:disabled {
+            border-color: transparent;
+            &:hover {
+               background-color: transparent;
+            }
+         }
+      }
+   }
+`;

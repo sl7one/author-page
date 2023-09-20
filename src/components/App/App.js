@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 
 import { BackgroundVideo } from 'components/BackgroundVideo/BackgroundVideo';
 import { Header } from 'components/Header/Header';
+import MessageForm from 'components/MessageForm/MessageForm';
 import store from 'store';
 import { ThemeProvider } from 'styled-components';
 import { AppBox, BackgroundImage, InfoArticle, MainBox } from 'styles/styled';
@@ -67,6 +68,7 @@ export const App = () => {
                </InfoArticle>
             </MainBox>
          </AppBox>
+         <MessageForm />
       </ThemeProvider>
    );
 };
