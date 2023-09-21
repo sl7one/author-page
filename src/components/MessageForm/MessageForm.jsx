@@ -21,7 +21,7 @@ export default function MessageForm() {
    useEffect(() => {
       if (isClicked) {
          tl.current.to(messageForm.current, {
-            duration: 0.65,
+            duration: 0.35,
             ease: `power2.easeOut`,
             bottom: '50%',
             right: '50%',
@@ -31,13 +31,21 @@ export default function MessageForm() {
             translate: '50% 50%',
             borderRadius: '10px',
             cursor: 'default',
-            onComplete: () => {
-               gsap.to([...close.current, ...elements.current], { scale: 1, opacity: 1 });
-            },
+         });
+         gsap.to([...close.current, ...elements.current], {
+            duration: 0.3,
+            scale: 1,
+            opacity: 1,
+            // stagger: 0.1,
          });
       } else {
+         gsap.to([...close.current, ...elements.current], {
+            scale: 0,
+            opacity: 0,
+            // stagger: 0.1,
+         });
          tl.current.to(messageForm.current, {
-            duration: 0.65,
+            duration: 0.55,
             ease: `power2.easeOut`,
             bottom: '5%',
             right: '5%',
@@ -50,11 +58,6 @@ export default function MessageForm() {
             borderBottomRightRadius: '8px',
             borderBottomLeftRadius: '30px',
             cursor: 'pointer',
-         });
-         gsap.to([...close.current, ...elements.current], {
-            duration: 0.3,
-            scale: 0,
-            opacity: 0,
          });
       }
    }, [isClicked]);
@@ -127,7 +130,10 @@ export default function MessageForm() {
                {closeFlag ? `Autoclose ${Math.abs(timeOut)}` : 'x'}
             </span>
          </p>
-         <form onSubmit={onSubmit}>
+         <form
+            onSubmit={onSubmit}
+            ref={(el) => elements.current.push(el)}
+         >
             <input
                type="text"
                name="name"
