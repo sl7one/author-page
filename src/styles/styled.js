@@ -243,17 +243,18 @@ export const SkillsPageBox = styled.div`
       justify-content: space-between;
       margin-top: 30px;
       flex-wrap: wrap;
+      gap: 30px;
 
       div {
-         display: flex;
-         gap: 10px;
-         flex-direction: column;
-
          p[name='title'] {
             font-weight: 300;
             span {
                color: ${({ theme }) => theme.colors.mainAccent};
             }
+         }
+
+         ul {
+            margin-top: 10px;
          }
       }
    }
