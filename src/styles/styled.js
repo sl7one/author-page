@@ -132,7 +132,7 @@ const lampRotation0 = keyframes`
 }
 `;
 
-export const LampButton = styled.button`
+export const LampButtonBox = styled.button`
    transition: ${({ theme }) => theme.transition('transform')};
    position: relative;
    z-index: 1;
