@@ -49,7 +49,7 @@ export const BackgroundVideoBox = styled.div`
 `;
 
 export const Container = styled.div`
-   padding: 0 40px;
+   padding: ${({ isDesktop }) => (!isDesktop ? 0 : `0 40px`)};
 `;
 
 const line = keyframes`
@@ -71,7 +71,9 @@ export const HeaderBox = styled.header`
       gap: 20px;
       justify-content: space-between;
    }
+`;
 
+export const NavigationBox = styled.nav`
    ul {
       display: flex;
       gap: 20px;
@@ -97,17 +99,34 @@ export const HeaderBox = styled.header`
                padding-top: 60px;
             }
 
-            &.active::after {
+            &.active::after,
+            &.active::before {
                content: '';
                display: block;
                position: absolute;
-               bottom: -10px;
                right: 0;
                width: 70%;
                height: 4px;
-               background-color: ${({ theme }) => theme.colors.mainAccent};
-
                animation: ${line} 350ms ease-in-out;
+               border-radius: 10px;
+               transform-origin: bottom right;
+            }
+
+            &.active::after {
+               display: ${({ isDesktop }) => (isDesktop ? 'block' : 'none')};
+
+               bottom: -10px;
+               background-color: ${({ theme }) => theme.colors.mainBlackBg};
+            }
+
+            &.active::before {
+               display: ${({ isDesktop }) => (!isDesktop ? 'block' : 'none')};
+               width: 100%;
+               height: 10px;
+               border-radius: 0;
+
+               top: 0;
+               background-color: ${({ theme }) => theme.colors.mainBlackBg};
             }
          }
       }
@@ -581,5 +600,44 @@ export const MessageFormBox = styled.div`
             }
          }
       }
+   }
+`;
+export const BurgerBtn = styled.div`
+   position: relative;
+   button {
+      padding: 5px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+   }
+`;
+export const BurgerLine = styled.div`
+   height: 3px;
+   width: 100%;
+   background-color: ${({ theme }) => theme.colors.mainWhiteBg};
+   display: block;
+   border-radius: 5px;
+`;
+
+export const BurgerCircle = styled.nav`
+   background-color: ${({ theme }) => theme.colors.mainAccent};
+   border-radius: 50%;
+   position: absolute;
+   top: 0;
+   right: 0;
+   height: 550px;
+   width: 550px;
+   z-index: 0;
+   transform: translateX(50%);
+   z-index: -1;
+   transform-origin: top right;
+
+   ul {
+      display: flex;
+      flex-direction: column;
    }
 `;
