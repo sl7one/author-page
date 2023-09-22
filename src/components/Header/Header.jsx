@@ -23,24 +23,26 @@ export const Header = ({ themeSwitcher, flag }) => {
    }, []);
 
    useEffect(() => {
-      if (pathname === '/') navigate('/about');
+      const sound = refAudio.current;
+      if (pathname === '/') {
+         navigate('/about');
+         return;
+      }
+      sound.currentTime = 0;
+      sound.play();
+      return () => sound.pause();
    }, [navigate, pathname]);
 
-   const onClick = () => {
-      refAudio.current.play();
-   };
+   // const onClick = () => {
+   //    refAudio.current.play();
+   // };
 
    const items = routes.slice(1).map(({ path, title }) => (
       <li
          key={title}
          ref={(el) => refItem.current.push(el)}
       >
-         <NavLink
-            onClick={onClick}
-            to={path}
-         >
-            {title}
-         </NavLink>
+         <NavLink to={path}>{title}</NavLink>
       </li>
    ));
 
