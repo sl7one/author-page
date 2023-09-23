@@ -605,6 +605,9 @@ export const MessageFormBox = styled.div`
 `;
 export const BurgerBtn = styled.div`
    position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    button {
       padding: 5px;
       width: 40px;
@@ -624,10 +627,10 @@ export const BurgerLine = styled.div`
    border-radius: 5px;
 `;
 
-export const BurgerCircle = styled.nav`
+export const BurgerCircle = styled.div`
    background-color: ${({ theme }) => theme.colors.mainAccent};
    border-radius: 50%;
-   position: absolute;
+   position: fixed;
    top: 0;
    right: 0;
    height: 550px;
