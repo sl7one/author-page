@@ -176,9 +176,10 @@ export const MainBox = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-   width: ${({ pathname }) => (pathname === '/tetris' ? '0%' : '50%')};
+   /* width: ${({ pathname }) => (pathname === '/tetris' ? '0%' : '50%')}; */
    transition: ${({ theme }) => theme.transition('width')};
    position: relative;
+   flex: 1;
    display: flex;
    justify-content: center;
    overflow: hidden;
@@ -189,12 +190,12 @@ export const BackgroundImage = styled.div`
 `;
 
 export const InfoArticle = styled.div`
-   padding-top: 150px;
-   padding-right: 40px;
+   padding: ${({ isDesktop }) => (isDesktop ? '150px 40px 0 0' : '150px 20px 20px 20px')};
    color: ${({ theme }) => theme.colors.mainWhiteText};
    width: ${({ pathname }) => (pathname === '/tetris' ? '100%' : '50%')};
    transition: ${({ theme }) => theme.transition('width')};
    overflow-y: hidden;
+   flex: 1;
 `;
 
 export const ProjectPageBox = styled.div`

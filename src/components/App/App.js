@@ -4,6 +4,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { BackgroundVideo } from 'components/BackgroundVideo/BackgroundVideo';
 import { Header } from 'components/Header/Header';
 import MessageForm from 'components/MessageForm/MessageForm';
+import useMedia from 'hooks/useMedia';
 import store from 'store';
 import { ThemeProvider } from 'styled-components';
 import { AppBox, BackgroundImage, InfoArticle, MainBox } from 'styles/styled';
@@ -21,6 +22,7 @@ export const App = () => {
    const [flag, setFlag] = useState(init().flag);
    const { pathname } = useLocation();
    const navigate = useNavigate();
+   const { isDesktop } = useMedia();
 
    useEffect(() => {
       if (pathname === '/') {
@@ -63,13 +65,18 @@ export const App = () => {
                flag={flag}
             />
             <MainBox>
-               <BackgroundImage pathname={pathname}>
-                  <img
-                     src={photoSwitcher(pathname)}
-                     alt="author"
-                  />
-               </BackgroundImage>
-               <InfoArticle pathname={pathname}>
+               {isDesktop && (
+                  <BackgroundImage pathname={pathname}>
+                     <img
+                        src={photoSwitcher(pathname)}
+                        alt="author"
+                     />
+                  </BackgroundImage>
+               )}
+               <InfoArticle
+                  pathname={pathname}
+                  isDesktop={isDesktop}
+               >
                   <div id="detail">
                      <Outlet />
                   </div>
