@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Loader } from 'components/Loader/Loader';
 import gsap from 'gsap';
-import useMedia from 'hooks/useMedia';
 import { MessageFormBox } from 'styles/styled';
 
 export default function MessageForm() {
