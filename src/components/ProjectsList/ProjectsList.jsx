@@ -18,15 +18,17 @@ export default function ProjectsList() {
                      </a>
                   </span>
                   ,{' '}
-                  <span>
-                     <a
-                        href={gitHubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                     >
-                        github
-                     </a>
-                  </span>
+                  {gitHubLink && (
+                     <span>
+                        <a
+                           href={gitHubLink}
+                           target="_blank"
+                           rel="noopener noreferrer"
+                        >
+                           github
+                        </a>
+                     </span>
+                  )}
                </p>
                <p>
                   <span>[ </span>

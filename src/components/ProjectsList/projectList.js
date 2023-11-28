@@ -1,12 +1,5 @@
 export const projectsList = [
    {
-      livePageLink: 'https://sl7one.github.io/loco-it-react/',
-      gitHubLink: 'https://sl7one.github.io/loco-it-react/',
-      title: 'LocoIt',
-      description: `"Loco IT" is a showcase of a React-powered web application, highlighting the potential of this cutting-edge technology. From dynamic user interfaces to seamless interactions, the website offers an immersive demonstration of React's capabilities for creating modern and responsive web applications. Own project. SPA landing. Experience with animation.`,
-      utils: 'HTML, SASS, React, Router-dom',
-   },
-   {
       livePageLink: 'https://iuliia-sokol.github.io/Ice-Project/',
       gitHubLink: 'https://github.com/iuliia-sokol/Ice-Project',
       title: 'Ice',
@@ -19,14 +12,6 @@ export const projectsList = [
       title: 'Filmoteka',
       description: `A website showcasing a collection of films from various genres, including action, drama, comedy, and more. Users can browse through the films and access detailed information about each movie, such as its synopsis, cast and crew, and release date. Team project. Role: team leader`,
       utils: 'HTML, SASS, JS, Notiflix, LightBox, Tui Pagination, Axios, REST API, AJAX, Parcel',
-   },
-
-   {
-      livePageLink: 'https://sl7one.github.io/react-pet-coronavirus-statistics/',
-      gitHubLink: 'https://github.com/sl7one/react-pet-coronavirus-statistics',
-      title: 'CoronaVirus-Stats',
-      description: `Own pet-project. Simple API, coronavirus stast`,
-      utils: 'React, Styled-Components, Axios, React-Modal, Store',
    },
 
    {
@@ -65,11 +50,18 @@ export const projectsList = [
       utils: 'React, React-Router-Dom, React-Cool-Virtual, React-Tabs, Tooltip, TypeScript, Zustand',
    },
    {
-      livePageLink: 'https://sl7one.github.io/palmira/',
-      gitHubLink: 'https://github.com/sl7one/palmira',
-      title: 'Palmira',
+      livePageLink: 'https://jaguarautotrans.com.ua/',
+      gitHubLink: null,
+      title: 'Jaguar-trans',
       description: `Markup for commercial project. Mobile-first adaptive layout`,
       utils: 'HTML, SASS, JS, JQuery, Slick',
+   },
+   {
+      livePageLink: 'https://palmira.od.ua/',
+      gitHubLink: null,
+      title: 'Palmira-club',
+      description: `Markup for commercial project. Mobile-first adaptive layout`,
+      utils: 'HTML, SASS, JS, JQuery, Slider',
    },
    {
       livePageLink: 'https://sl7one.github.io/fake-store/',
@@ -86,5 +78,3 @@ export const projectsList = [
       utils: 'React,  Axios, Swiper, Toastify, React-Dropzone, React-Select, React-Router-Dom',
    },
 ].reverse();
-
-
