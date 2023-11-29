@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { BackgroundVideo } from 'components/BackgroundVideo/BackgroundVideo';
 import { Header } from 'components/Header/Header';
+import Main from 'components/Main/Main';
 import MessageForm from 'components/MessageForm/MessageForm';
-import useMedia from 'hooks/useMedia';
 import store from 'store';
 import { ThemeProvider } from 'styled-components';
-import { AppBox, BackgroundImage, InfoArticle, MainBox } from 'styles/styled';
+import { AppBox, GlobalStyle } from 'styles/styled';
 import { themeDark, themeLight } from 'styles/theme';
-
-import photo7 from '../../assets/img/photo7.png';
 
 const init = () => {
    if (store.get('theme') === 'light') return { theme: themeLight, flag: false };
@@ -22,7 +20,6 @@ export const App = () => {
    const [flag, setFlag] = useState(init().flag);
    const { pathname } = useLocation();
    const navigate = useNavigate();
-   const { isDesktop } = useMedia();
 
    useEffect(() => {
       if (pathname === '/') {
@@ -42,19 +39,6 @@ export const App = () => {
       }
    };
 
-   const photoSwitcher = (pathname) => {
-      switch (pathname) {
-         case '/about':
-            return photo7;
-         // case '/skills':
-         //    return photo8;
-         // case '/contacts':
-         //    return photo9;
-         default:
-            return photo7;
-      }
-   };
-
    return (
       <ThemeProvider theme={theme}>
          <BackgroundVideo flag={flag} />
@@ -64,26 +48,12 @@ export const App = () => {
                themeSwitcher={themeSwitcher}
                flag={flag}
             />
-            <MainBox>
-               {isDesktop && (
-                  <BackgroundImage pathname={pathname}>
-                     <img
-                        src={photoSwitcher(pathname)}
-                        alt="author"
-                     />
-                  </BackgroundImage>
-               )}
-               <InfoArticle
-                  pathname={pathname}
-                  isDesktop={isDesktop}
-               >
-                  <div id="detail">
-                     <Outlet />
-                  </div>
-               </InfoArticle>
-            </MainBox>
+            <Main />
          </AppBox>
+
          <MessageForm />
+
+         <GlobalStyle />
       </ThemeProvider>
    );
 };

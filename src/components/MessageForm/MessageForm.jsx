@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Loader } from 'components/Loader/Loader';
 import gsap from 'gsap';
-import { MessageFormBox } from 'styles/styled';
+import { Container, MessageFormBox } from 'styles/styled';
 
 export default function MessageForm() {
    const messageForm = useRef(null);
@@ -115,72 +115,74 @@ export default function MessageForm() {
    };
 
    return (
-      <MessageFormBox
-         onClick={onClick}
-         ref={messageForm}
-         onMouseEnter={onMouseEnter}
-         onMouseLeave={onMouseLeave}
-      >
-         <p>
-            <span>Text me</span>
-            <span
-               onClick={onClose}
-               ref={(el) => close.current.push(el)}
-            >
-               {closeFlag ? `Autoclose ${Math.abs(timeOut)}` : 'x'}
-            </span>
-         </p>
-         <form
-            onSubmit={onSubmit}
-            ref={(el) => elements.current.push(el)}
+      <Container>
+         <MessageFormBox
+            onClick={onClick}
+            ref={messageForm}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
          >
-            <input
-               type="text"
-               name="name"
-               placeholder="Your Name"
+            <p>
+               <span>Text me</span>
+               <span
+                  onClick={onClose}
+                  ref={(el) => close.current.push(el)}
+               >
+                  {closeFlag ? `Autoclose ${Math.abs(timeOut)}` : 'x'}
+               </span>
+            </p>
+            <form
+               onSubmit={onSubmit}
                ref={(el) => elements.current.push(el)}
-               required
-               value={form.name}
-               onChange={({ target: { name, value } }) =>
-                  setForm((prev) => ({ ...prev, [name]: value }))
-               }
-            />
-            <input
-               type="email"
-               name="email"
-               placeholder="Your Email"
-               ref={(el) => elements.current.push(el)}
-               required
-               value={form.email}
-               onChange={({ target: { name, value } }) => {
-                  setForm((prev) => ({ ...prev, [name]: value }));
-               }}
-            />
-            <textarea
-               name="message"
-               placeholder="Message"
-               ref={(el) => elements.current.push(el)}
-               required
-               value={form.message}
-               onChange={({ target: { name, value } }) =>
-                  setForm((prev) => ({ ...prev, [name]: value }))
-               }
-            ></textarea>
-
-            <button
-               ref={(el) => elements.current.push(el)}
-               disabled={isLoading}
             >
-               {isLoading ? (
-                  <Loader
-                     isVisible={isLoading}
-                     size={30}
-                  />
-               ) : (
-                  'SEND'
-               )}
-            </button>
-         </form>
-      </MessageFormBox>
+               <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  ref={(el) => elements.current.push(el)}
+                  required
+                  value={form.name}
+                  onChange={({ target: { name, value } }) =>
+                     setForm((prev) => ({ ...prev, [name]: value }))
+                  }
+               />
+               <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  ref={(el) => elements.current.push(el)}
+                  required
+                  value={form.email}
+                  onChange={({ target: { name, value } }) => {
+                     setForm((prev) => ({ ...prev, [name]: value }));
+                  }}
+               />
+               <textarea
+                  name="message"
+                  placeholder="Message"
+                  ref={(el) => elements.current.push(el)}
+                  required
+                  value={form.message}
+                  onChange={({ target: { name, value } }) =>
+                     setForm((prev) => ({ ...prev, [name]: value }))
+                  }
+               ></textarea>
+
+               <button
+                  ref={(el) => elements.current.push(el)}
+                  disabled={isLoading}
+               >
+                  {isLoading ? (
+                     <Loader
+                        isVisible={isLoading}
+                        size={30}
+                     />
+                  ) : (
+                     'SEND'
+                  )}
+               </button>
+            </form>
+         </MessageFormBox>
+      </Container>
    );
 }

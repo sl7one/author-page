@@ -1,6 +1,12 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { createGlobalStyle, keyframes } from 'styled-components';
 
 import errorImg from '../assets/img/404-error-page.jpg';
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${({ theme }) => theme.colors.mainBlackBg};
+  }
+`;
 
 export const AppBox = styled.div`
    color: ${({ theme }) => theme.colors.mainBlackText};
@@ -49,6 +55,9 @@ export const BackgroundVideoBox = styled.div`
 `;
 
 export const Container = styled.div`
+   position: relative;
+   margin: 0 auto;
+   max-width: 1440px;
    padding: ${({ isDesktop }) => (!isDesktop ? 0 : `0 40px`)};
 `;
 
@@ -175,22 +184,17 @@ export const MainBox = styled.div`
    gap: 15px;
 `;
 
-export const BackgroundImage = styled.div`
+export const StyledImageBox = styled.div`
    /* width: ${({ pathname }) => (pathname === '/tetris' ? '0%' : '50%')}; */
    transition: ${({ theme }) => theme.transition('width')};
    position: relative;
    flex: 1;
-   display: flex;
-   justify-content: center;
-   overflow: hidden;
-
-   img {
-      width: unset;
-   }
 `;
 
-export const InfoArticle = styled.div`
-   padding: ${({ isDesktop }) => (isDesktop ? '150px 40px 0 0' : '150px 20px 20px 20px')};
+export const InfoBlockBox = styled.div`
+   margin-top: ${({ isDesktop }) => (isDesktop ? '150px' : 'unset')};
+
+   padding: ${({ isDesktop }) => (isDesktop ? '0' : '150px 20px 20px 20px')};
    color: ${({ theme }) => theme.colors.mainWhiteText};
    width: ${({ pathname }) => (pathname === '/tetris' ? '100%' : '50%')};
    transition: ${({ theme }) => theme.transition('width')};
@@ -199,12 +203,13 @@ export const InfoArticle = styled.div`
 `;
 
 export const ProjectPageBox = styled.div`
+   height: 100%;
    ul {
-      margin-top: 40px;
+      /* margin-top: 40px; */
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      height: 380px;
+      gap: 30px;
+      height: calc(100vh - 150px - 150px);
       overflow-y: scroll;
 
       scrollbar-width: thin;
@@ -222,22 +227,68 @@ export const ProjectPageBox = styled.div`
       }
    }
 
-   p {
-      margin-top: 10px;
-      font-weight: 200;
+   li {
+      position: relative;
 
-      &:nth-of-type(2) {
-         font-weight: 300;
-         span {
-            color: ${({ theme }) => theme.colors.mainAccent};
+      display: flex;
+      flex-direction: ${({ isDesktop }) => (isDesktop ? 'row' : 'column-reverse')};
+      gap: 15px;
+
+      div:first-of-type {
+         border-radius: 20px;
+         overflow: hidden;
+         width: ${({ isDesktop }) => (isDesktop ? '30%' : '100%')};
+
+         -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+         -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+         box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      }
+      div:last-of-type {
+         width: ${({ isDesktop }) => (isDesktop ? '70%' : '100%')};
+
+         p {
+            font-weight: 200;
+
+            &:nth-of-type(2) {
+               font-weight: 300;
+               span {
+                  color: ${({ theme }) => theme.colors.mainAccent};
+               }
+            }
+         }
+
+         a {
+            text-decoration: underline ${({ theme }) => theme.colors.mainAccent};
+            font-size: 20px;
+            font-weight: 300;
          }
       }
-   }
 
-   a {
-      text-decoration: underline ${({ theme }) => theme.colors.mainAccent};
-      font-size: 20px;
-      font-weight: 300;
+      & > span {
+         display: block;
+
+         width: 50px;
+         height: 50px;
+         border-radius: 50%;
+
+         opacity: 0;
+
+         position: absolute;
+         z-index: -1;
+         bottom: 0;
+         left: 0;
+
+         background-color: ${({ theme }) => theme.colors.span};
+
+         transition: 350ms ease-in-out;
+      }
+
+      :hover > span {
+         width: 100%;
+         height: 100%;
+         border-radius: 20px;
+         opacity: 1;
+      }
    }
 `;
 
@@ -524,12 +575,14 @@ export const MessageFormBox = styled.div`
 
    background-color: rgba(0, 0, 0, 0.8);
 
+   cursor: pointer;
+
    position: fixed;
    bottom: 5%;
    right: 5%;
 
    transform: rotate(-25deg);
-   z-index: 10;
+   z-index: 100;
 
    p {
       display: flex;

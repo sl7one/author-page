@@ -136,8 +136,8 @@ button {
 img {
    display: block;
    width: 100%;
-   height: auto;
-   border-style: none;
+   height: 100%;
+   object-fit: cover;
 }
 
 span {
