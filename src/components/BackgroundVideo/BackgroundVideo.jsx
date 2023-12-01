@@ -6,6 +6,7 @@ export const BackgroundVideo = ({ flag }) => {
    return (
       <BackgroundVideoBox flag={flag}>
          <video
+            playsinline
             autoPlay
             muted
             loop
