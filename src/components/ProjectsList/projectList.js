@@ -8,6 +8,7 @@ import palmira from '../../assets/img/palmira.png';
 import petsPaw from '../../assets/img/petsPaw.png';
 import rgb from '../../assets/img/rgb.png';
 import soYammy from '../../assets/img/soYammy.png';
+import threeFiberConcept from '../../assets/img/threeFiberConcept.png';
 
 export const projectsList = [
    {
@@ -97,5 +98,13 @@ export const projectsList = [
       description: `Pet-project. Used api.thecatapi.com for backend. Friendly pure CSS transitions. Adaptive layout`,
       utils: 'React,  Axios, Swiper, Toastify, React-Dropzone, React-Select, React-Router-Dom',
       img: petsPaw,
+   },
+   {
+      livePageLink: 'https://sl7one.github.io/react-three-concept/',
+      gitHubLink: 'https://github.com/sl7one/react-three-concept',
+      title: 'React Three Concept',
+      description: `Pet-project. Familiarity with React Three Fiber`,
+      utils: 'Vite, React,  Gsap, React Three Fiber',
+      img: threeFiberConcept,
    },
 ].reverse();
